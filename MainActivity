@@ -1,0 +1,48 @@
+package com.example.students;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+
+import java.util.List;
+
+import Data.DataBaseHandler;
+import Meple.Student;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        DataBaseHandler db = new DataBaseHandler(this);
+
+//        db.addStudent(new Student("RTE", "VASILEV", "SERGEY", 4));
+//        db.addStudent(new Student("COLBASNIY", "SEMANYAN", "LUDA", 5));
+//        db.addStudent(new Student("SOSICHNIY", "DAYNEKO", "YAROSLAV", 3));
+//        db.addStudent(new Student("HELICOPTERNIY", "SMAROV", "GADJI", 3));
+
+        List<Student> students = db.getAllStudents();
+
+
+//        Student student = db.getStudent(1);
+//        student.setFaculty("HISTORICAL");
+//        student.setAv_grade(5);
+//        db.updateStudent(student);
+
+//        Log.d("studen1", "ID: " + student.getId() + ", FAC: " + student.getFaculty() + ", FAMILIYA: " + student.getLast_name()
+//                + ", IMYA: " + student.getFirst_name() + ", SREDNYAYA OTSENKA: " + student.getAv_grade());
+//        Student delSt = db.getStudent(7);
+//        db.deleteStudent(delSt);
+
+        for(Student st : students) {
+            Log.d("studen1", "ID: " + st.getId() + ", FAC: " + st.getFaculty() + ", FAMILIYA: " + st.getLast_name()
+                    + ", IMYA: " + st.getFirst_name() + ", SREDNYAYA OTSENKA: " + st.getAv_grade());
+        }
+
+
+
+    }
+}
